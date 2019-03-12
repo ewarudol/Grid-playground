@@ -1,0 +1,3 @@
+@mixin item($span){
+  grid-column: span $span;
+}

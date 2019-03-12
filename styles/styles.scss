@@ -1,0 +1,182 @@
+@import 'mixins';
+
+$header_span: 6;
+
+$item_span-big: 4;
+$item_span-medium: 6;
+$item_span-small: 12;
+
+$font: 16px;
+
+
+/***** MEDIA QUERIES ******/
+
+/*Mobile*/
+@media only screen and(max-width: 767px) {
+    .item {
+    @include item($item_span-small);
+    }
+    
+    .menu-items{
+        display: none;
+    }
+    
+    .page-tile{
+        display: none;
+    }
+}
+
+/*Tablet*/
+@media only screen and(min-width: 768px)and(max-width: 1023px) {
+    .item-stay {
+    @include item($item_span-medium);
+    }
+     .item-resize {
+    @include item($item_span-small);
+    }
+    
+    .menu-items{
+        display: none;
+    }
+    
+    .menu img{
+        display: inline-block;
+    }
+    
+}
+
+/*Desktop*/
+@media only screen and(min-width: 1024px) {
+    .item{
+    @include item($item_span-big);
+    }
+    
+    .menu img{
+        display: none;
+    }
+}
+
+/***** GRID ******/
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+  height: 100%;
+    max-width: 100%;
+}
+
+.container {
+    margin: 0px 30px;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+    justify-content: center;	
+}
+
+
+.logo {
+    @include item($header_span);
+    font-size: $font * 2;
+    display: flex;
+    align-items: center;
+    
+}
+
+.menu {
+    @include item($header_span);
+    text-align: right;
+    padding: 20px;
+    
+    span{
+        margin: 30px;
+    }
+    
+}
+
+.main{
+    padding: 15px;
+}
+
+.header{
+    font-size: $font * 1.5;
+    float: right;
+    width: 20%;
+    padding: 15px 30px;
+    border-left: solid 2px black;
+    border-bottom: solid 2px black;
+    text-align: center;
+}
+
+.main{
+    clear: both;
+}
+
+/***** ITEM ******/
+
+.item{
+    background-color: #e0e4cc;
+    border: solid 2px black;
+    text-align: justify;
+}
+
+.item-stay{
+    @extend .item;
+}
+
+.item-resize{
+    @extend .item;
+}
+
+
+.item-1{
+    @extend .item-resize;
+    
+    .header{
+        background-color: #69d2e7;
+    }
+}
+
+.item-2{
+    @extend .item-stay;
+    
+     .header{
+        background-color: #f38630;
+    }
+}
+
+.item-3{
+    @extend .item-stay;
+    
+     .header{
+        background-color: #e9aeaf;
+    }
+}
+
+/**** FOOT ****/
+
+.wrap{
+    min-height: 85%;
+    padding-bottom: 5%;
+    box-sizing: border-box;
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+    background-color: #e0e4cc;
+    text-align: center;
+    min-height: 15%;
+    align-items: center;
+    
+    .author{
+        font-weight: bold;
+    }
+}
+
+.author{
+    font-weight: bold;
+}
